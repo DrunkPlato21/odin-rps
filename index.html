@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+
+    <script>
+
+        //Computer plays their hand function
+
+        function computerPlay() {
+            let x = Math.floor(Math.random() * 3) + 1;
+            let choice = ""
+
+            if (x===1) {choice = "Rock"} 
+            else if (x===2) {choice = "Paper"}
+            else if (x===3) {choice = "Scissors"}
+
+            return choice
+        
+        }
+
+        function playRound(playerSelection, computerSelection) {
+
+            let player = playerSelection.toLowerCase();
+            let computer = computerSelection.toLowerCase();
+
+
+            
+            if (player === computer) {return "It was a tie! Both players selected: " + playerSelection}
+            else if (player === "rock" && computer === "scissors") { return "You win! Rock beats Scissors!" }
+            else if (player === "rock" && computer === "paper") { return "You lose! Paper beats Rock!" }
+            else if (player === "paper" && computer === "rock") { return "You Win! Paper beats Rock!" }
+            else if (player === "paper" && computer === "scissors") { return "You Lose! Scissors beats Paper!" }
+            else if (player === "scissors" && computer === "rock") { return "You Lose! Rock beats Scissors!" }
+            else if (player === "scissors" && computer === "paper") { return "You Win! Scissors beats Paper!" }
+
+        }
+
+        const playerSelection = "rock"
+        const computerSelection = computerPlay()
+
+        console.log(computerPlay())
+
+    </script>
+
+        
+    
+</body>
+</html>
