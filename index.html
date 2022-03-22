@@ -29,24 +29,29 @@
             let player = playerSelection.toLowerCase();
             let computer = computerSelection.toLowerCase();
             
-            if (player === computer) {return "It was a tie! Both players selected: " + playerSelection}
-            else if (player === "rock" && computer === "scissors") { return "You win! Rock beats Scissors!" }
-            else if (player === "rock" && computer === "paper") { return "You lose! Paper beats Rock!" }
-            else if (player === "paper" && computer === "rock") { return "You Win! Paper beats Rock!" }
-            else if (player === "paper" && computer === "scissors") { return "You Lose! Scissors beats Paper!" }
-            else if (player === "scissors" && computer === "rock") { return "You Lose! Rock beats Scissors!" }
-            else if (player === "scissors" && computer === "paper") { return "You Win! Scissors beats Paper!" }
+            if (player === computer) {return "tie"}
+            else if (player === "rock" && computer === "scissors") { return "win" }
+            else if (player === "rock" && computer === "paper") { return "lose" }
+            else if (player === "paper" && computer === "rock") { return "win" }
+            else if (player === "paper" && computer === "scissors") { return "lose" }
+            else if (player === "scissors" && computer === "rock") { return "lose" }
+            else if (player === "scissors" && computer === "paper") { return "lose" }
 
         }
 
         function game(){
+            let score = 0
 
             for (let i = 0; i<5; i++){
                 
                 const computerSelection = computerPlay()
                 const playerSelection = prompt("Round " + (i+1) + ": choose rock, paper or scissors")
+                let x = playRound(playerSelection, computerSelection)
                 
-                console.log("Round " + (i+1) + ": " + playRound(playerSelection, computerSelection))
+
+                if (x==="win") {score++; console.log("You won! " + playerSelection + " beats " + computerSelection + ". Your score is: " + score)}
+                else if (x==="lose") {console.log("You have lost! " + computerSelection + " beats " + playerSelection + ". Your score is: " + score)}
+                else if (x==="tie") {console.log("You have tied!Your score is: " + score)}                
                 
             }
 
