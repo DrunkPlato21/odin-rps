@@ -1,3 +1,5 @@
+view it here: https://drunkplato21.github.io/odin-rps/
+
 odin-javascript rock paper scissors project
 
 ask user for rock, paper or scissors
