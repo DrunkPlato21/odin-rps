@@ -5,72 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
+    <script type="text/javascript" src="game.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
-    <script>
+<h3>Rock, Paper, Scissors!</h3>
+<p>choose your weapon:</p>
 
-        //Computer plays their hand function
-
-        function computerPlay() {
-            let x = Math.floor(Math.random() * 3) + 1;
-            let choice = ""
-
-            if (x===1) {choice = "Rock"} 
-            else if (x===2) {choice = "Paper"}
-            else if (x===3) {choice = "Scissors"}
-
-            return choice
-        
-        }
-
-        function playRound(playerSelection, computerSelection) {
-
-            let player = playerSelection.toLowerCase();
-            let computer = computerSelection.toLowerCase();
-            
-            if (player === computer) {return "tie"}
-            else if (player === "rock" && computer === "scissors") { return "win" }
-            else if (player === "rock" && computer === "paper") { return "lose" }
-            else if (player === "paper" && computer === "rock") { return "win" }
-            else if (player === "paper" && computer === "scissors") { return "lose" }
-            else if (player === "scissors" && computer === "rock") { return "lose" }
-            else if (player === "scissors" && computer === "paper") { return "lose" }
-
-        }
-
-        function game(){
-            let score = 0
-
-            for (let i = 0; i<5; i++){
-                
-                const computerSelection = computerPlay()
-                const playerSelection = prompt("Round " + (i+1) + ": choose rock, paper or scissors")
-                let x = playRound(playerSelection, computerSelection)
-                
-
-                if (x==="win") {score++; console.log("You won! " + playerSelection + " beats " + computerSelection + ". Your score is: " + score)}
-                else if (x==="lose") {console.log("You have lost! " + computerSelection + " beats " + playerSelection + ". Your score is: " + score)}
-                else if (x==="tie") {console.log("You have tied! Your score is: " + score)}                
-                
-            }
-
-            console.log("Good game! Your final score was: " + score)
-
-            
-
-
-        }
+        <button class ="rock">Rock</button>
+        <button class ="paper">Paper</button>
+        <button class ="scissors">Scissors</button>
 
         
-//change comment        
-
-       // console.log(playRound(playerSelection,computerSelection))
-       console.log(game())
-
-    </script>
-
         
-    
+    <div class="score-container">
+        <div class="results"><b>First to 5 Wins!</b></div>
+        <div class="score">Player Score: 0</div>
+        <div class="cpuScore">Computer Score: 0</div>
+    </div>
+
 </body>
 </html>
